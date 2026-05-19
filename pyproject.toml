@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voice-rubik-grasping"
+version = "0.1.0"
+description = "Voice-guided Piper robotic arm demo for Rubik's Cube grasping."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "opencv-python",
+  "pyyaml",
+  "scipy",
+  "sounddevice",
+  "faster-whisper",
+  "Pillow",
+]
+
+[project.optional-dependencies]
+vision = ["torch", "torchvision", "groundingdino-py"]
+ros2 = ["cv-bridge"]
+
+[project.scripts]
+voice-rubik-grasp = "voice_rubik_grasping.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

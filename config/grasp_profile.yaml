@@ -1,0 +1,35 @@
+camera:
+  use_ros2: true
+  color_topic: /orbbec/color/image_raw
+  depth_topic: /orbbec/depth/image_raw
+  usb_camera_id: 0
+  intrinsics:
+    fx: 487.85
+    fy: 487.85
+    cx: 318.40
+    cy: 216.84
+
+vision:
+  grounding_dino_weights: weights/groundingdino_swint_ogc.pth
+  efficient_sam_weights: weights/efficient_sam_vits.pt
+  box_threshold: 0.35
+  text_threshold: 0.25
+
+robot:
+  can_interface: can0
+  handeye_calibration: config/T_ee_cam_example.yaml
+  home_joints_deg: [0.0, 0.0, 0.0, 0.0, 28.0, 0.0, 0.0]
+  safe_joints_deg: [0.0, 0.0, 0.0, 0.0, 33.2, 0.0, 0.0]
+  place_joints_deg: [91.7, 61.3, -7.3, -0.6, -3.4, -0.6, 0.0]
+  joint_lower_deg: [-150.0, 0.0, -170.0, -100.0, -70.0, -120.0]
+  joint_upper_deg: [150.0, 180.0, 0.0, 100.0, 70.0, 120.0]
+  speed: 30
+
+grasp:
+  approach_distance_m: 0.10
+  final_distance_m: 0.09
+  z_offset_m: 0.01
+  lift_distance_m: 0.10
+  place_descend_m: 0.03
+  gripper_open_mm: 80.0
+  gripper_force: 0.5

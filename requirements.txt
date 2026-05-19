@@ -1,0 +1,7 @@
+numpy
+opencv-python
+pyyaml
+scipy
+sounddevice
+faster-whisper
+Pillow

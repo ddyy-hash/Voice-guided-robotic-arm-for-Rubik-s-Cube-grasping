@@ -1,0 +1,81 @@
+exit_commands:
+  - 退出
+  - 停止
+  - 结束
+  - 停
+  - 停下
+  - 暂停
+  - 取消
+  - 别抓了
+  - exit
+  - stop
+  - quit
+
+remove_words:
+  - 帮我
+  - 帮忙
+  - 请
+  - 把
+  - 那个
+  - 这个
+  - 一下
+  - 拿
+  - 抓
+  - 取
+  - 给我
+  - 我要
+  - 抓取
+  - 夹取
+  - 可以
+  - 麻烦
+  - 谢谢
+  - 的
+  - 了
+  - 吧
+  - 呢
+
+colors:
+  红: red
+  红色: red
+  红的: red
+  蓝: blue
+  蓝色: blue
+  蓝的: blue
+  绿: green
+  绿色: green
+  绿的: green
+  黄: yellow
+  黄色: yellow
+  黄的: yellow
+  白: white
+  白色: white
+  黑: black
+  黑色: black
+  橙: orange
+  橙色: orange
+
+objects:
+  魔方: cube
+  摩方: cube
+  磨方: cube
+  模仿: cube
+  魔法: cube
+  立方体: cube
+  方块: cube
+  鲁比克: rubik's cube
+  杯子: cup
+  水杯: cup
+  苹果: apple
+  瓶子: bottle
+  水瓶: bottle
+  笔: pen
+  铅笔: pencil
+  手机: phone
+  遥控器: remote
+  盒子: box
+  书: book
+  鼠标: mouse
+  键盘: keyboard
+  球: ball
+  玩具: toy
+  积木: block

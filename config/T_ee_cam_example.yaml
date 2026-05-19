@@ -1,0 +1,9 @@
+transformation:
+  matrix_4x4:
+    - [1.0, 0.0, 0.0, 0.0]
+    - [0.0, 1.0, 0.0, 0.0]
+    - [0.0, 0.0, 1.0, 0.0]
+    - [0.0, 0.0, 0.0, 1.0]
+
+calibration_info:
+  note: Example placeholder. Replace this file with the calibrated tool-to-camera transform before hardware execution.
