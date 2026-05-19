@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Voice-guided Rubik's Cube grasping system architecture</title>
+  <desc id="desc">A layered architecture diagram showing voice command parsing, open-vocabulary perception, hand-eye projection, grasp planning, and Piper arm execution.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2563eb"/>
+    </marker>
+    <linearGradient id="headerGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <filter id="softShadow" x="-8%" y="-12%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { fill: #ffffff; font: 700 30px Arial, sans-serif; }
+      .subtitle { fill: #dbeafe; font: 400 16px Arial, sans-serif; }
+      .lane-title { fill: #334155; font: 700 15px Arial, sans-serif; letter-spacing: 0; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 16; filter: url(#softShadow); }
+      .box-blue { fill: #eff6ff; stroke: #60a5fa; }
+      .box-green { fill: #ecfdf5; stroke: #34d399; }
+      .box-amber { fill: #fffbeb; stroke: #f59e0b; }
+      .box-purple { fill: #f5f3ff; stroke: #a78bfa; }
+      .box-red { fill: #fff1f2; stroke: #fb7185; }
+      .box-title { fill: #0f172a; font: 700 17px Arial, sans-serif; }
+      .box-text { fill: #475569; font: 400 13px Arial, sans-serif; }
+      .tag { fill: #e2e8f0; stroke: #cbd5e1; rx: 10; }
+      .tag-text { fill: #334155; font: 700 12px Arial, sans-serif; }
+      .arrow { stroke: #2563eb; stroke-width: 2.6; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #94a3b8; stroke-width: 1.8; stroke-dasharray: 6 6; fill: none; marker-end: url(#arrow); }
+      .note { fill: #64748b; font: 400 12px Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1280" height="640"/>
+  <rect x="40" y="34" width="1200" height="90" rx="22" fill="url(#headerGradient)"/>
+  <text class="title" x="74" y="74">Voice-Guided Rubik's Cube Grasping Architecture</text>
+  <text class="subtitle" x="74" y="102">Offline voice command parsing, vision-based target localization, eye-in-hand projection, and safe Piper arm execution.</text>
+
+  <text class="lane-title" x="70" y="165">Command Layer</text>
+  <text class="lane-title" x="70" y="296">Perception Layer</text>
+  <text class="lane-title" x="70" y="427">Planning Layer</text>
+
+  <rect x="220" y="145" width="170" height="88" rx="16" fill="#eff6ff" stroke="#60a5fa" stroke-width="1.5"/>
+  <text class="box-title" x="244" y="177">Voice / Text</text>
+  <text class="box-text" x="244" y="202">Chinese speech command</text>
+  <text class="box-text" x="244" y="220">or typed target prompt</text>
+
+  <rect x="450" y="145" width="190" height="88" rx="16" fill="#eff6ff" stroke="#60a5fa" stroke-width="1.5"/>
+  <text class="box-title" x="474" y="177">Command Parser</text>
+  <text class="box-text" x="474" y="202">Faster-Whisper output</text>
+  <text class="box-text" x="474" y="220">alias normalization</text>
+
+  <rect x="700" y="145" width="210" height="88" rx="16" fill="#eff6ff" stroke="#60a5fa" stroke-width="1.5"/>
+  <text class="box-title" x="724" y="177">Detector Prompt</text>
+  <text class="box-text" x="724" y="202">cube, red cup, bottle</text>
+  <text class="box-text" x="724" y="220">open-vocabulary target</text>
+
+  <rect x="970" y="145" width="170" height="88" rx="16" fill="#f5f3ff" stroke="#a78bfa" stroke-width="1.5"/>
+  <text class="box-title" x="994" y="177">Voice Aliases</text>
+  <text class="box-text" x="994" y="202">Chinese synonyms</text>
+  <text class="box-text" x="994" y="220">noise-tolerant mapping</text>
+
+  <path class="arrow" d="M390 189 H438"/>
+  <path class="arrow" d="M640 189 H688"/>
+  <path class="dash" d="M970 189 H922"/>
+
+  <rect x="220" y="276" width="190" height="96" rx="16" fill="#ecfdf5" stroke="#34d399" stroke-width="1.5"/>
+  <text class="box-title" x="244" y="309">RGB-D Camera</text>
+  <text class="box-text" x="244" y="334">Orbbec color/depth</text>
+  <text class="box-text" x="244" y="352">eye-in-hand view</text>
+
+  <rect x="470" y="276" width="220" height="96" rx="16" fill="#ecfdf5" stroke="#34d399" stroke-width="1.5"/>
+  <text class="box-title" x="494" y="309">Target Detection</text>
+  <text class="box-text" x="494" y="334">GroundingDINO path</text>
+  <text class="box-text" x="494" y="352">Rubik color fallback</text>
+
+  <rect x="750" y="276" width="210" height="96" rx="16" fill="#ecfdf5" stroke="#34d399" stroke-width="1.5"/>
+  <text class="box-title" x="774" y="309">2D + Depth Fusion</text>
+  <text class="box-text" x="774" y="334">target center pixel</text>
+  <text class="box-text" x="774" y="352">median depth sample</text>
+
+  <rect x="1010" y="276" width="170" height="96" rx="16" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+  <text class="box-title" x="1034" y="309">Calibration</text>
+  <text class="box-text" x="1034" y="334">camera intrinsics</text>
+  <text class="box-text" x="1034" y="352">T_tool_camera</text>
+
+  <path class="arrow" d="M305 233 V264"/>
+  <path class="arrow" d="M410 324 H458"/>
+  <path class="arrow" d="M690 324 H738"/>
+  <path class="dash" d="M1010 324 H972"/>
+  <path class="arrow" d="M805 233 V264"/>
+
+  <rect x="220" y="407" width="210" height="96" rx="16" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+  <text class="box-title" x="244" y="440">Base-Frame Pose</text>
+  <text class="box-text" x="244" y="465">camera point projected</text>
+  <text class="box-text" x="244" y="483">through hand-eye transform</text>
+
+  <rect x="500" y="407" width="220" height="96" rx="16" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+  <text class="box-title" x="524" y="440">Grasp Planner</text>
+  <text class="box-text" x="524" y="465">approach pose</text>
+  <text class="box-text" x="524" y="483">gripper standoff + lift</text>
+
+  <rect x="790" y="407" width="210" height="96" rx="16" fill="#fff1f2" stroke="#fb7185" stroke-width="1.5"/>
+  <text class="box-title" x="814" y="440">Safety Gate</text>
+  <text class="box-text" x="814" y="465">dry-run by default</text>
+  <text class="box-text" x="814" y="483">motion only with --execute</text>
+
+  <rect x="1050" y="407" width="170" height="96" rx="16" fill="#fff1f2" stroke="#fb7185" stroke-width="1.5"/>
+  <text class="box-title" x="1074" y="440">Piper SDK</text>
+  <text class="box-text" x="1074" y="465">CAN control</text>
+  <text class="box-text" x="1074" y="483">gripper command</text>
+
+  <path class="arrow" d="M855 372 C855 392 325 386 325 396"/>
+  <path class="arrow" d="M430 455 H488"/>
+  <path class="arrow" d="M720 455 H778"/>
+  <path class="arrow" d="M1000 455 H1038"/>
+
+  <rect x="220" y="545" width="1000" height="44" rx="18" fill="#e0f2fe" stroke="#7dd3fc"/>
+  <text class="note" x="250" y="572">Public showcase mode: selected demo media and safe dry-run verification are included; raw logs, ROS bags, and large model weights stay outside Git.</text>
+
+  <rect class="tag" x="70" y="181" width="96" height="28"/>
+  <text class="tag-text" x="91" y="200">Input</text>
+  <rect class="tag" x="70" y="312" width="96" height="28"/>
+  <text class="tag-text" x="86" y="331">Sensing</text>
+  <rect class="tag" x="70" y="443" width="96" height="28"/>
+  <text class="tag-text" x="89" y="462">Motion</text>
+</svg>

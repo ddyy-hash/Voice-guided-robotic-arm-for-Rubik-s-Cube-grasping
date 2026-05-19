@@ -34,30 +34,7 @@ Key frames from the same demo:
 
 ## Architecture
 
-```text
-Voice input or text command
-        |
-        v
-VoiceCommandParser
-        |
-        v
-Detector prompt, for example "cube" or "red cup"
-        |
-        v
-OpenVocabularyDetector / Rubik color fallback
-        |
-        v
-2D target center + depth
-        |
-        v
-Camera intrinsics + T_tool_camera hand-eye calibration
-        |
-        v
-Target end-effector pose
-        |
-        v
-PiperArm dry-run plan or Piper SDK execution
-```
+![Voice-guided Rubik's Cube grasping architecture](docs/assets/system_architecture.svg)
 
 ## Repository Structure
 
